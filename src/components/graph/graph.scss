@@ -1,0 +1,30 @@
+@import '../../common';
+
+.graph {
+  margin: 1rem 2rem;
+}
+
+.graph svg {
+  transition-property: width, height;
+  transition-duration: 0.5s;
+}
+
+.border {
+  border: $common-border;
+  display: inline-block;
+}
+
+.node {}
+
+.node text,
+.edgeLabel {
+  text-anchor: middle;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+
+.node text {
+  dominant-baseline: central;
+}
+
+.edge {}

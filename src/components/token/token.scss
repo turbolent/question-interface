@@ -1,0 +1,20 @@
+@import '../../common';
+
+.token {
+  border: $common-border;
+  background: #eee;
+  margin: 0 1rem 1rem 0;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.token > * {
+  padding: 0.4rem 0.6rem;
+}
+
+.token > div:first-child {
+  border-bottom: $common-border;
+}

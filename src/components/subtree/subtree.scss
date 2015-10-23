@@ -1,0 +1,29 @@
+@import '../../common';
+
+$spacing: 10px;
+
+.leaf {
+  border: $common-border;
+}
+
+.leaf .type,
+.leaf .name {
+  padding: 0.4rem;
+  background: #ddd;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: $common-border;
+}
+
+.leaf .name {
+  background: #eee;
+}
+
+.leaf .children {
+  display: flex;
+  padding: $spacing;
+}
+
+.leaf + .leaf {
+  margin-left: $spacing
+}

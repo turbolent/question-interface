@@ -1,0 +1,16 @@
+$background-color: #fcc;
+$text-color: #C11F1F;
+
+.failure {
+  background: $background-color;
+  margin: 1rem 2rem;
+  padding: 0.6rem;
+  color: $text-color;
+  white-space: pre;
+  overflow: scroll;
+}
+
+.rawFailure {
+  composes: failure;
+  font-family: monospace;
+}

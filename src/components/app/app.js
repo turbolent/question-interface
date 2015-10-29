@@ -72,7 +72,10 @@ export class App extends Component {
 
         // TODO: request results of all queries
         let resultsRequest = requestQuery(result.queries[0])
-        this.setState({currentRequest: resultsRequest, result})
+        this.setState({
+          currentRequest: resultsRequest,
+          result
+        })
         let results = await resultsRequest
 
         this.setState({
@@ -85,6 +88,7 @@ export class App extends Component {
         this.setState({
           currentRequest: undefined,
           requestFailed: false,
+          results: null,
           result
         })
       }
@@ -94,7 +98,8 @@ export class App extends Component {
         this.setState({
           currentRequest: undefined,
           requestFailed: true,
-          result: null
+          result: null,
+          results: null
         })
       }
     }

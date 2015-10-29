@@ -14,8 +14,7 @@ $text-color: rgba(255, 255, 255, 0.8);
 }
 
 .list {
-  list-style-position: inside;
-  list-style-type: square;
+  list-style: square inside;
   max-height: 500px;
   overflow: hidden;
   transition: max-height 0.6s, opacity 0.3s;

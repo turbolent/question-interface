@@ -4,6 +4,7 @@ import { Failure } from './../failure/failure'
 import { Tokens } from './../tokens/tokens'
 import { Tree } from './../tree/tree'
 import { Graph } from './../graph/graph'
+import { Query } from './../query/query'
 
 
 export class Interpretation extends Component {
@@ -37,6 +38,14 @@ export class Interpretation extends Component {
       </Section>
     }
 
+    let queries
+    if (result.queries) {
+      queries = <Section title="Queries">
+        {result.queries.map((query, index) =>
+                                <Query query={query} key={index} />)}
+      </Section>
+    }
+
     let error
     if (result.error) {
       error = <Section title="Error">
@@ -46,6 +55,7 @@ export class Interpretation extends Component {
 
     return <div>
       {error}
+      {queries}
       {nodes}
       {question}
       {tokens}

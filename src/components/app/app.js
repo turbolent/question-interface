@@ -2,8 +2,14 @@ import { Component, PropTypes } from 'react'
 import { Header } from './../header/header'
 import { Failure } from './../failure/failure'
 import { Interpretation } from './../interpretation/interpretation'
-import { request } from './../../api'
+import { requestQueries, requestQuery } from './../../api'
 import { encodeSentence, getSavedSentence } from './../../history'
+import { Tabs } from './../tabs/tabs'
+import { Results } from './../results/results'
+import styles from './app.scss'
+
+
+const TABS = ['Results', 'Debug']
 
 
 export class App extends Component {
@@ -20,10 +26,12 @@ export class App extends Component {
     super()
     this.handSubmit = this.handSubmit.bind(this)
     this.handlePopState = this.handlePopState.bind(this)
+    this.handleTabSelection = this.handleTabSelection.bind(this)
 
     this.state = {
       sentence: getSavedSentence(),
-      requestFailed: false
+      requestFailed: false,
+      tabIndex: 0
     }
   }
 
@@ -55,15 +63,31 @@ export class App extends Component {
       currentRequest.abort()
 
     try {
-      let newRequest = request(sentence)
+      let newRequest = requestQueries(sentence)
       this.setState({currentRequest: newRequest})
       let result = await newRequest
 
-      this.setState({
-        currentRequest: undefined,
-        requestFailed: false,
-        result
-      })
+      if (result.queries) {
+        console.info("Got queries, now requesting result")
+
+        // TODO: request results of all queries
+        let resultsRequest = requestQuery(result.queries[0])
+        this.setState({currentRequest: resultsRequest, result})
+        let results = await resultsRequest
+
+        this.setState({
+          currentRequest: undefined,
+          requestFailed: false,
+          results
+        })
+      } else {
+        // request succeeded, but didn't produce any queries
+        this.setState({
+          currentRequest: undefined,
+          requestFailed: false,
+          result
+        })
+      }
     } catch (e) {
       if (!e.dueToAbort) {
         console.error('request failed:', e)
@@ -96,8 +120,17 @@ export class App extends Component {
     }
   }
 
+  handleTabSelection(index) {
+    this.setState({tabIndex: index})
+  }
+
+  styleForTab(index) {
+    if (index != this.state.tabIndex)
+      return {display: 'none'}
+  }
+
   render() {
-    let {result, requestFailed, sentence, currentRequest} = this.state
+    let {result, results, requestFailed, sentence, currentRequest, tabIndex} = this.state
     let requesting = !!currentRequest
     let {placeholder} = this.props
     let header =
@@ -108,9 +141,16 @@ export class App extends Component {
             resultSentence={sentence}
         />
 
-    let failure
+    let tabs =
+        <Tabs items={TABS} activeItem={tabIndex} onSelection={this.handleTabSelection} />
+
+    let content
     if (requestFailed)
-      failure = <Failure message="Request failed"/>
+      content = <Failure message="Request failed"/>
+    else if (results)
+      content = <Results results={results}/>
+    else if (result && result.error)
+      content = <Failure message="Hmm, no clue what that means. Maybe try something else." />
 
     let interpretation
     if (result)
@@ -118,8 +158,12 @@ export class App extends Component {
 
     return <div>
       {header}
-      {failure}
-      {interpretation}
+      {tabs}
+      {[content, interpretation]
+          .map((tab, i) =>
+                          <div className={styles.tab} style={this.styleForTab(i)} key={i}>
+                            {tab}
+                          </div>)}
     </div>
   }
 }

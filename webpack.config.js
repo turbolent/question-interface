@@ -17,7 +17,7 @@ module.exports = {
     entry: { 
         javascript: "./index.js",
         html: "./index.html",
-        vendors: ['react', 'react-dom', 'd3']
+        vendors: ['react', 'react-dom', 'd3', 'codemirror']
     },
     output: {
         path: __dirname + "/dist",
@@ -31,6 +31,12 @@ module.exports = {
                 "css?modules&-autoprefixer&localIdentName=__[path][name]_[local]_[hash:base64:5]",
                 "autoprefixer",
                 "sass"
+              ]
+            },
+            { test: /\.css$/,
+              loaders: [
+                "style",
+                "css"
               ]
             },
             { test: /\.js$/,

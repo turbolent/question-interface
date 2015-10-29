@@ -5,7 +5,9 @@
   align-items: flex-start;
   justify-content: center;
   background: $header-background-color;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: $header-box-shadow;
+  // let shadow overlap next element
+  position: relative;
 }
 
 .header .container {

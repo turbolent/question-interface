@@ -1,0 +1,17 @@
+@import '../../common';
+
+.note {
+  color: #777;
+  margin: 2rem
+}
+
+.results {
+  margin: 2rem;
+  padding: 0;
+  list-style: square inside;
+}
+
+.results a,
+.results a:active {
+  color: $header-text-color;
+}

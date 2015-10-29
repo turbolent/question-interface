@@ -17,10 +17,11 @@
     "file-loader": "0.8.x",
     "style-loader": "0.13.x",
     "babel-runtime": "5.8.x",
-    "react": "0.14.x",
-    "react-dom": "0.14.x",
+    "react": "0.14.0",
+    "react-dom": "0.14.0",
     "d3": "3.5.x",
     "codemirror": "5.8.x",
-    "react-codemirror": "0.2.x"
+    "react-codemirror": "0.2.0",
+    "react-addons-css-transition-group": "0.14.0"
   }
 }

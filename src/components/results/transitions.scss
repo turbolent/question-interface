@@ -1,0 +1,28 @@
+.appear,
+.enter,
+.leave.leaveActive
+{
+  opacity: 0;
+}
+
+.appear.appearActive,
+.enter.enterActive,
+.leave {
+  opacity: 1;
+}
+
+.appear.appearActive,
+.enter.enterActive,
+.leave.leaveActive {
+  transition-property: opacity;
+  transition-timing-function: ease-in;
+}
+
+.appear.appearActive,
+.enter.enterActive {
+  transition-duration: 300ms;
+}
+
+.leave.leaveActive {
+  transition-duration: 200ms;
+}

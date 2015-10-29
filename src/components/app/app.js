@@ -2,7 +2,7 @@ import { Component, PropTypes } from 'react'
 import { Header } from './../header/header'
 import { Failure } from './../failure/failure'
 import { Interpretation } from './../interpretation/interpretation'
-import { request } from './../../api'
+import { requestQueries, requestQuery } from './../../api'
 import { encodeSentence, getSavedSentence } from './../../history'
 
 
@@ -55,15 +55,31 @@ export class App extends Component {
       currentRequest.abort()
 
     try {
-      let newRequest = request(sentence)
+      let newRequest = requestQueries(sentence)
       this.setState({currentRequest: newRequest})
       let result = await newRequest
 
-      this.setState({
-        currentRequest: undefined,
-        requestFailed: false,
-        result
-      })
+      if (result.queries) {
+        console.info("Got queries, now requesting result")
+
+        // TODO: request results of all queries
+        let resultsRequest = requestQuery(result.queries[0])
+        this.setState({currentRequest: resultsRequest, result})
+        let results = await resultsRequest
+
+        this.setState({
+          currentRequest: undefined,
+          requestFailed: false,
+          results
+        })
+      } else {
+        // request succeeded, but didn't produce any queries
+        this.setState({
+          currentRequest: undefined,
+          requestFailed: false,
+          result
+        })
+      }
     } catch (e) {
       if (!e.dueToAbort) {
         console.error('request failed:', e)

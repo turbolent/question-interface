@@ -6,7 +6,7 @@ const QUERY_API_PATH = 'https://query.wikidata.org/bigdata/namespace/wdq/sparql'
 const TIMEOUT = 10000
 const MIN_DURATION = 0
 
-export function request(sentence) {
+export function requestQueries(sentence) {
   let url = new URL(PARSE_API_PATH, window.location.href)
   url.search = 'sentence=' + encodeURIComponent(sentence)
 

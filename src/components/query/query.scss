@@ -1,0 +1,29 @@
+@import '../../common';
+
+.text {
+  font-family: monospace;
+  margin: 0 2rem;
+  display: inline-block;
+  border: $common-border;
+  padding: 0.2rem 0.4rem;
+}
+
+.actions {
+  margin: 0 2rem 1.5rem;
+}
+
+.actions a {
+  padding: 0.3rem 0.4em;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 0.9rem;
+}
+
+.actions a,
+.actions a:active {
+  color: $header-text-color;
+}
+
+:global(.cm-s-neo .CodeMirror-linenumber) {
+  color: #b3b4b7 !important;
+}

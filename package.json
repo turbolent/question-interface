@@ -19,6 +19,8 @@
     "babel-runtime": "5.8.x",
     "react": "0.14.x",
     "react-dom": "0.14.x",
-    "d3": "3.5.x"
+    "d3": "3.5.x",
+    "codemirror": "5.8.x",
+    "react-codemirror": "0.2.x"
   }
 }

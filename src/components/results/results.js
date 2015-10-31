@@ -13,11 +13,16 @@ export class Results extends Component {
 
   makeItem(result, i) {
     let {type, value} = result
-    return <li key={i}>
-      {type === 'uri'
-          ? <a href={value} target="_blank">{value}</a>
-          : value}
-    </li>
+
+    if (type === 'uri') {
+      let pos = value.lastIndexOf('/')
+      let key = value.substring(pos + 1)
+      return <li key={key}>
+        <a href={value} target="_blank">{value}</a>
+      </li>
+    }
+
+    return <li key={i}>{value}</li>
   }
 
   render() {

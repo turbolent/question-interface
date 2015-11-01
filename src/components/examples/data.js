@@ -9,5 +9,6 @@ export const EXAMPLES = [
   'Which cities have more than two million inhabitants',
   'books by George Orwell',
   'Which presidents were born before 1900',
+  'children of the president of France',
   'What are the population size and area of Japan and China'
 ]

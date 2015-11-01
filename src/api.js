@@ -56,6 +56,15 @@ export function requestQueries(sentence) {
   return promise
 }
 
+function parseQueryResults(json) {
+  let variable = json.head.vars.find(variable => !/Label$/.test(variable))
+  return json.results.bindings.map(binding => {
+    let result = binding[variable]
+    result.label = binding[variable + 'Label'].value
+    return result
+  })
+}
+
 export function requestQuery(query) {
   let url = new URL(QUERY_API_PATH, window.location.href)
 
@@ -84,8 +93,7 @@ export function requestQuery(query) {
 
         try {
           let json = JSON.parse(request.responseText)
-          let variable = json.head.vars[0]
-          let results = json.results.bindings.map((binding) => binding[variable])
+          let results = parseQueryResults(json)
           resolve(results)
         } catch (e) {
           let error = Error(e)

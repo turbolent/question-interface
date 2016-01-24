@@ -41,7 +41,12 @@ module.exports = {
             },
             { test: /\.js$/,
               exclude: /node_modules/,
-              loader: "babel?optional[]=runtime&stage=0"},
+              loader: "babel",
+              query: {
+                presets: ['react', 'es2015', 'stage-0'],
+                plugins: ['transform-runtime']
+              },
+            },
             { test: /\.svg$/,
               loader: "url?limit=10000" },
             { test: /\.html$/,

@@ -7,11 +7,11 @@ export class Failure extends Component {
   static propTypes = {
     message: PropTypes.string.isRequired,
     isRaw: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     isRaw: false
-  }
+  };
 
   render() {
     let {message, isRaw} = this.props

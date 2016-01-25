@@ -29,7 +29,7 @@ export class LabelNode {
       // TODO:
       return label.temporal
     }
-  }
+  };
 
   constructor(label) {
     this.id = nextNodeId++

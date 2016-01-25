@@ -8,7 +8,7 @@ export class Tree extends Component {
 
   static propTypes = {
     root: PropTypes.object.isRequired
-  }
+  };
 
   render() {
     let {root} = this.props

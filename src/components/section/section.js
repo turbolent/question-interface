@@ -7,7 +7,7 @@ export class Section extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired
-  }
+  };
 
   render() {
     let {children, title} = this.props

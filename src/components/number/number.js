@@ -5,7 +5,7 @@ export class NumberComponent extends Component {
   static propTypes = {
     unit: PropTypes.object,
     value: PropTypes.number.isRequired
-  }
+  };
 
   render() {
     let {value, unit} = this.props

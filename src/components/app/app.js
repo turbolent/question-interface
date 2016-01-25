@@ -16,11 +16,11 @@ export class App extends Component {
 
   static propTypes = {
     placeholder: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     placeholder: '...'
-  }
+  };
 
   constructor() {
     super()

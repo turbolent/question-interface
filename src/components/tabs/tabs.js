@@ -8,11 +8,11 @@ export class Tabs extends Component {
     items: PropTypes.arrayOf(PropTypes.string).isRequired,
     activeItem: PropTypes.number,
     onSelection: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     activeItem: 0
-  }
+  };
 
   handleClick(i) {
     let {onSelection} = this.props

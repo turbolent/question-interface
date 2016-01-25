@@ -30,7 +30,7 @@ export class Graph extends Component {
 
   static propTypes = {
     root: PropTypes.object.isRequired
-  }
+  };
 
   static settings = {
     size: {
@@ -159,12 +159,12 @@ export class Graph extends Component {
     fadeInDuration: 100,
     fadeOutDuration: 100,
     secondaryDashArray: '7,2'
-  }
+  };
 
   static adjustSizeValue(value, nodeCount, edgeCount) {
     let sizeEstimate = nodeCount + edgeCount
     return Math.round(value * (2 + 0.2 * Math.pow(sizeEstimate, 1.2)))
-  }
+  };
 
   static getLinkDistance(d) {
     let {getLabeled, getShort, getLong} =
@@ -179,7 +179,7 @@ export class Graph extends Component {
       return getShort()
 
     return getLong()
-  }
+  };
 
   static getEdgeStroke(d) {
     let {getDirected, getFilter, getOther, getAggregate} =
@@ -195,13 +195,13 @@ export class Graph extends Component {
       return getAggregate()
 
     return getOther()
-  }
+  };
 
   static getEdgeStrokeDashArray(d) {
     if (d instanceof AggregateEdge
         || d instanceof FilterEdge)
       return Graph.settings.secondaryDashArray
-  }
+  };
 
   static getNodeFill(d) {
     let {getRoot, getVariable, getLabel, getOther, getAggregate} =
@@ -221,7 +221,7 @@ export class Graph extends Component {
     return getAggregate()
 
     return getOther()
-  }
+  };
 
   static getNodeStroke(d) {
     let {getRoot, getVariable, getLabel, getOther, getAggregate} =
@@ -241,7 +241,7 @@ export class Graph extends Component {
     return getAggregate()
 
     return getOther()
-  }
+  };
 
   static getNodeTextFill(d) {
     let {getRoot, getVariable, getConjunction, getLink, getOther} =
@@ -261,12 +261,12 @@ export class Graph extends Component {
       return getLink()
 
     return getOther()
-  }
+  };
 
   static getNodeTextFontWeight(d) {
     if (d instanceof LabelNode)
       return 'bold'
-  }
+  };
 
   static getEdgeMarkerEnd(d, graph) {
     let isDirected = d instanceof DirectedEdge
@@ -276,7 +276,7 @@ export class Graph extends Component {
       let id = graph.getMarkerId(type)
       return `url(#${id})`
     }
-  }
+  };
 
   static getNodeTextShadow(d) {
     let {normal, strong} =
@@ -287,7 +287,7 @@ export class Graph extends Component {
       return strong
 
     return normal
-  }
+  };
 
   static linkify(d) {
     let link = d.getLink()
@@ -305,7 +305,7 @@ export class Graph extends Component {
     let parent = this.parentNode
     parent.appendChild(element)
     element.appendChild(this)
-  }
+  };
 
   static getEdgeLabelFill(d) {
     let {getLink, getOther} =
@@ -315,7 +315,7 @@ export class Graph extends Component {
       return getLink()
 
     return getOther()
-  }
+  };
 
   static addMarker(selection, id, type) {
     let {size, color} = Graph.settings.marker
@@ -335,7 +335,7 @@ export class Graph extends Component {
           d: 'M0,-5L10,0L0,5',
           fill: colorFactory()
         })
-  }
+  };
 
   static getLinkOffset(d) {
     if (!(d instanceof DirectedEdge)
@@ -355,12 +355,12 @@ export class Graph extends Component {
 
     return [(diffX * offset) / pathLength,
             (diffY * offset) / pathLength]
-  }
+  };
 
   static getNextId = (function () {
     var nextId = 0
     return () => nextId++
-  })()
+  })();
 
   constructor() {
     super()

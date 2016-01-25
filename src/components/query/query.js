@@ -12,7 +12,7 @@ export class Query extends Component {
   static propTypes = {
     query: PropTypes.string.isRequired,
     options: PropTypes.object
-  }
+  };
 
   static defaultProps = {
     options: {
@@ -21,7 +21,7 @@ export class Query extends Component {
       theme: "neo",
       lineNumbers: true
     }
-  }
+  };
 
   render() {
     let {query, options} = this.props

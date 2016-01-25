@@ -15,13 +15,13 @@ export class Header extends Component {
     placeholder: PropTypes.string,
     requesting: PropTypes.bool,
     onSubmit: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     resultSentence: '',
     placeholder: '',
     onSubmit: null
-  }
+  };
 
   constructor(props) {
     super(props)

@@ -7,12 +7,12 @@ export class Spinner extends Component {
   static propTypes = {
     active: PropTypes.bool,
     delay: PropTypes.number
-  }
+  };
 
   static defaultProps = {
     active: false,
     delay: 500
-  }
+  };
 
   constructor() {
     super()

@@ -18,7 +18,7 @@ export class Subtree extends Component {
     name: PropTypes.string,
     type: PropTypes.string,
     value: PropTypes.any.isRequired
-  }
+  };
 
   static leafTypes = {
     Token(value, index) {
@@ -52,7 +52,7 @@ export class Subtree extends Component {
     NumberWithUnitLabel(value, index) {
       return <NumberComponent value={value.value} unit={value.unit} key={index}/>
     }
-  }
+  };
 
   static makeChild(name, item, index) {
     if (Array.isArray(item))
@@ -67,7 +67,7 @@ export class Subtree extends Component {
     }
 
     return <Subtree name={name} type={type} value={value} key={index} />
-  }
+  };
 
   static getChildren(type, value) {
     if (Array.isArray(value))
@@ -83,7 +83,7 @@ export class Subtree extends Component {
 
     return Object.keys(value)
         .map((name, index) => Subtree.makeChild(name, value[name], index))
-  }
+  };
 
   render() {
     let {name, type, value} = this.props

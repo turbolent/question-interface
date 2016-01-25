@@ -12,7 +12,7 @@ export class Token extends Component {
 
   static propTypes = {
     token: PropTypes.object.isRequired
-  }
+  };
 
   render() {
     let {token} = this.props

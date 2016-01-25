@@ -7,7 +7,7 @@ export class Tokens extends Component {
 
   static propTypes = {
     tokens: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
+  };
 
   render() {
     let {tokens} = this.props

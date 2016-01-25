@@ -11,7 +11,7 @@ export class Interpretation extends Component {
 
   static propTypes = {
     result: PropTypes.object.isRequired
-  }
+  };
 
   render() {
     let {result} = this.props

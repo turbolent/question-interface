@@ -161,7 +161,7 @@ export class App extends Component {
     if (result)
       interpretation = <Interpretation result={result} />
 
-    return <div>
+    return <div className={styles.fill}>
       {header}
       {tabs}
       {[content, interpretation]

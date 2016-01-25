@@ -17,7 +17,7 @@ module.exports = {
     entry: { 
         javascript: "./index.js",
         html: "./index.html",
-        vendors: ['react', 'react-dom', 'd3', 'codemirror']
+        vendors: ['react', 'react-dom', 'd3', 'codemirror', 'collection-view']
     },
     output: {
         path: __dirname + "/dist",

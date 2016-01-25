@@ -5,13 +5,27 @@
   margin: 2rem
 }
 
-.results {
-  margin: 2rem;
-  padding: 0;
-  list-style: square inside;
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f4f4f6;
 }
 
-.results a,
-.results a:active {
-  color: $header-text-color;
+.item {
+  background: white;
+  color: #424242;
+  font-size: 1rem;
+  padding: 0.6rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
+
+.item a {
+  color: $header-text-color;
+  text-decoration: none;
+  padding: 0.2rem;
+  display: block;
+}
+

@@ -6,9 +6,10 @@ export const EXAMPLES = [
   'Give me movies directed by Quentin Tarantino',
   'Which cities are bigger than New York City',
   'Who is older than Barack Obama',
+  "What actor married John F. Kennedy's sister",
   'Which cities have more than two million inhabitants',
   'books by George Orwell',
   'Which presidents were born before 1900',
   'children of the president of France',
-  'What are the population size and area of Japan and China'
+  'authors which died in Berlin or Paris'
 ]
